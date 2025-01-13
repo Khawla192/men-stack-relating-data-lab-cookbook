@@ -4,12 +4,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/style.css" />
   <title>Cookbook</title>
 </head>
 
 <body>
   <%- include('./partials/_navbar.ejs') %>
-
+  <div class="index-container">
+    <div class="text-container">
+        <h1 class="main-header">Cookbook</h1>
+        <p class="subheader">A food pantry tracker.</p>
+    </div>
     <% if (user) { %>
       <h1>Welcome to the Cookbook, <%= user.username %>!</h1>
       <p>
@@ -17,11 +22,15 @@
       </p>
       <% } else { %>
         <h1>Welcome to the Cookbook, guest.</h1>
-        <p>
-          <a href="/auth/sign-up">Sign up</a> or
-          <a href="/auth/sign-in">Sign in</a>.
+        <div class="auth-links">
+            <p>Please 
+            <a class="signup-link" href="/auth/sign-up">Sign up</a> or
+            <a class="signin-link" href="/auth/sign-in">Sign in</a> to manage your pantry.
+          </div>
         </p>
+
         <% } %>
+  </div>
 </body>
 
 </html>

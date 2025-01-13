@@ -4,22 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editing <%= foods.name %>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Editing <%= food.name %>
     </title>
 </head>
 
 <body>
     <%- include('../partials/_navbar.ejs') %>
-        <h1>
-            Edit <%= food.name %>
-        </h1>
-
-        <a href="/users/<%=user._id%>/foods/new">Edit the <%= food.name %></a>
+    <div class="edit-body">
+        <h1>Edit Pantry Item</h1>
         <form action="/users/<%= user._id %>/foods/<%= food._id %>?_method=PUT" method="POST">
             <label for="name">Name:</label>
-            <input type="text" name="name" id="name" value="<%= food.name %>" />
-            <button type="submit">Edit <%= food.name %></button>
+            <input type="text" id="name" name="name" value="<%= food.name %>" required>
+            <button type="submit">Update Item</button>
         </form>
+    </div>
 </body>
 
 </html>

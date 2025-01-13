@@ -4,17 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Add New Food</title>
 </head>
 
 <body>
     <%- include('../partials/_navbar.ejs') %>
-        <h1>Add New Item</h1>
-        <form action="/users/<%= user._id %>/foods" method="POST">
-            <label for="name">Name:</label>
-            <input type="text" name="name" id="name" />
-            <button type="submit">Add Item</button>
-        </form>
+        <h1>Add a New Pantry Item</h1>
+        <div class="new-body">
+            <form action="/users/<%= user._id %>/foods" method="POST" class="form-container">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
+                <button type="submit">Add Item</button>
+            </form>
+        </div>
 </body>
 
 </html>

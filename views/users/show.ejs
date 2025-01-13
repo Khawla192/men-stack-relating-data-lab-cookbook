@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>
+        <%= user.username %>'s Pantry
+    </title>
+</head>
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+    <div class="show-body">
+        <div class="show-header">
+            <h1>
+                <%= user.username %>'s Pantry
+            </h1>
+        </div>
+        <div class="show-sidebar">
+            <% if (user.pantry.length > 0) { %>
+                <ul>
+                    <% user.pantry.forEach(item=> { %>
+                        <li>
+                            <%= item.name %>
+                        </li>
+                        <% }); %>
+                </ul>
+                <% } else { %>
+                    <p>
+                        <%= user.username %> has no items in their pantry.
+                    </p>
+                    <% } %>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -4,13 +4,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
   <title>My Pantry</title>
 </head>
 
 <body>
   <%- include('../partials/_navbar.ejs') %>
-    <h1>Welcome to my Pantry</h1>
-    <a href="/users/<%=user._id%>/foods/new">Add New Item</a>
+  <div class="all-apps-body">
+    <div class="all-apps-header">
+        <h1>Welcome to My Pantry</h1>
+        <a class="add-app-link" href="/users/<%= user._id %>/foods/new">Add New Item</a>
+    </div>
+    <div class="pantry-items">
+      <% if (pantryItems.length> 0) { %>
+        <div class="card-container">
+          <ul>
+            <% pantryItems.forEach(item => { %>
+              <div class="pantry-card">
+                <li>
+                  <%= item.name %>
+                  <form action="/users/<%= user._id %>/foods/<%= item._id %>?_method=DELETE" method="POST">
+                      <a class="index-view-link" href="/users/<%= user._id %>/foods/<%= item._id %>">View</a>
+                      <a class="index-edit-link" href="/users/<%= user._id %>/foods/<%= item._id %>/edit">Edit</a>
+                      <button type="submit">Delete</button>
+                    </form>
+                </li>
+              </div>
+              <% }); %>
+          </ul>
+        </div>
+        <% } else { %>
+          <p>Your pantry is currently empty. Let's add some items!</p>
+          <% } %>  
+    </div>
+  </div>
 </body>
 
 </html>

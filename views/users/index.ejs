@@ -4,28 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Our Community</title>
 </head>
 
 <body>
     <%- include('../partials/_navbar.ejs') %>
-
-    <h1>Our Community</h1>
-    <% if (user) { %>
-        <ul>
-            <% users.forEach(user => { %>
-                <li>
-                    <%= user.name %>
-                </li>
-                <% }); %>
-        </ul>
-        <% } else { %>
-            <h1>There is no user.</h1>
-            <p>
-                <a href="/auth/sign-up">Sign up</a> or
-                <a href="/auth/sign-in">Sign in</a>.
-            </p>
-            <% } %>
+    <div class="all-apps-body">
+        <div class="all-apps-header">
+            <h1>Our Community</h1>
+        </div>
+        <div class="pantry-list-item">
+            <ul>
+                <% users.forEach(user => { %>
+                    <li><a href="/users/<%= user._id %>">
+                            <%= user.username %>
+                        </a></li>
+                    <% }); %>
+            </ul>
+        </div>
+    </div>
 </body>
 
 </html>
