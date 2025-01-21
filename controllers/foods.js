@@ -45,7 +45,7 @@ router.get('/:foodId', async (req, res) => {
     }
 });
 
-router.delete('/:foodID', async (req, res) => {
+router.delete('/:foodId', async (req, res) => {
     try {
         const currentUser = await User.findById(req.session.user._id);
         currentUser.pantry.id(req.params.foodId).deleteOne(); 
